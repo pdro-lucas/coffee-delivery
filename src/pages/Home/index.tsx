@@ -1,12 +1,17 @@
+import { Heading } from '../../components/Heading';
 import { Container } from '../../components/Utilities';
 import { Main } from './styles';
 
 export function HomePage() {
   return (
     <Main>
-      <Container>
-        <h1>Hello World</h1>
-      </Container>
+      <section>
+        <Container>
+          <Heading level="h1">
+            Encontre o café perfeito para qualquer hora do dia
+          </Heading>
+        </Container>
+      </section>
     </Main>
   );
 }

@@ -1,23 +1,23 @@
 import { MapPin, ShoppingCartSimple } from 'phosphor-react';
-import Logo from '../../assets/logo.svg';
-import { Nav, Location, NavItems, Header } from './styles';
 import { NavLink } from 'react-router-dom';
+import Logo from '../../assets/logo.svg';
+import * as S from './styles';
 
 export function Navbar() {
   return (
-    <Header>
-      <Nav>
+    <S.Header>
+      <S.Nav>
         <img src={Logo} alt="" />
-        <NavItems>
-          <Location>
+        <S.NavItems>
+          <S.Location>
             <MapPin size={24} weight="fill" />
             Ouro Preto, MG
-          </Location>
+          </S.Location>
           <NavLink to="/cart" title="My Cart">
             <ShoppingCartSimple size={24} weight="fill" />
           </NavLink>
-        </NavItems>
-      </Nav>
-    </Header>
+        </S.NavItems>
+      </S.Nav>
+    </S.Header>
   );
 }

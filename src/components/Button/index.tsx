@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import { StyledButton } from './styles';
+import * as S from './styles';
 
 type ButtonVariants = 'primary' | 'secondary' | 'icon' | 'cartButton';
 
@@ -11,8 +11,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ children, $gap, ...rest }: ButtonProps) {
   return (
-    <StyledButton $gap={$gap} {...rest}>
+    <S.StyledButton $gap={$gap} {...rest}>
       {children}
-    </StyledButton>
+    </S.StyledButton>
   );
 }
