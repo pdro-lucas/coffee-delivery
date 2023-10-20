@@ -7,7 +7,6 @@ export const Main = styled.main`
 
   section:first-child {
     padding-top: 5.75rem;
-    height: 34rem;
 
     background:
       linear-gradient(
