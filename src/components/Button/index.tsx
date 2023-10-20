@@ -9,9 +9,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   $gap?: number;
 }
 
-export function Button({ children, $gap, ...rest }: ButtonProps) {
+export function Button({ children, $variant, $gap, ...rest }: ButtonProps) {
   return (
-    <S.StyledButton $gap={$gap} {...rest}>
+    <S.StyledButton $gap={$gap} {...rest} $variant={$variant}>
       {children}
     </S.StyledButton>
   );

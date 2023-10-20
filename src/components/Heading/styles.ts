@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { HeadingProps } from '.';
 
-const baseHeading = styled.div`
+const baseHeading = styled.h1`
   line-height: 130%;
   color: ${(props) => props.theme.colors.base.title};
 
@@ -9,7 +9,7 @@ const baseHeading = styled.div`
 `;
 export const Heading = styled(baseHeading)<HeadingProps>`
   ${(props) => {
-    switch (props.level) {
+    switch (props.$level) {
       case 'h1':
         return `
         font-size: 3rem;
