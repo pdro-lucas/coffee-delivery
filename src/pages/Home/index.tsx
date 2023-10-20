@@ -1,4 +1,4 @@
-import { Container } from '../../components/Utilities';
+import { Container } from '@/components/Utilities';
 import { CooffeesSection } from './sections/Coffees';
 import { HeroSection } from './sections/Hero';
 import * as S from './styles';
