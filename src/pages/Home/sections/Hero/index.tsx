@@ -1,44 +1,34 @@
-import { Heading } from '@/components/Heading';
-import { ShoppingCartSimple } from 'phosphor-react';
-import { ReactNode } from 'react';
 import CoffeDeliveryCup from '@/assets/coffee-delivery-cup.png';
+import { Heading } from '@/components/Heading';
+import {
+  InfoHighlightCard,
+  InfoHighlightCardProps,
+} from '@/components/InfoHighlightCard';
 import { Text } from '@/components/Text';
 import { Flex } from '@/components/Utilities';
+import { Coffee, Package, ShoppingCartSimple, Timer } from 'phosphor-react';
 import * as S from './styles';
 
-export type HeroItemBackground = 'primary' | 'secondary' | 'purple' | 'dark';
-
-interface HeroItems {
-  id: number;
-  title: string;
-  background: HeroItemBackground;
-  icon: ReactNode;
-}
-
-const heroItems: HeroItems[] = [
+const heroItems: InfoHighlightCardProps[] = [
   {
-    id: 1,
     title: 'Compra simples e segura',
     background: 'secondary',
     icon: <ShoppingCartSimple size={16} weight="fill" />,
   },
   {
-    id: 2,
     title: 'Embalagem mantém o café intacto',
     background: 'dark',
-    icon: <ShoppingCartSimple size={16} weight="fill" />,
+    icon: <Package size={16} weight="fill" />,
   },
   {
-    id: 3,
     title: 'Entrega rápida e rastreada',
     background: 'primary',
-    icon: <ShoppingCartSimple size={16} weight="fill" />,
+    icon: <Timer size={16} weight="fill" />,
   },
   {
-    id: 4,
     title: 'O café chega fresquinho até você',
     background: 'purple',
-    icon: <ShoppingCartSimple size={16} weight="fill" />,
+    icon: <Coffee size={16} weight="fill" />,
   },
 ];
 
@@ -62,12 +52,12 @@ export function HeroSection() {
         </Text>
         <Flex $mt="4.12rem" $rowGap="1.75rem" $columnGap="2.7rem" $wrap="wrap">
           {heroItems.map((item) => (
-            <Flex key={item.id} $gap="0.75rem" $align="center">
-              <S.ItemIcon $bg={item.background}>{item.icon}</S.ItemIcon>
-              <Text $size="sm" $as="span">
-                {item.title}
-              </Text>
-            </Flex>
+            <InfoHighlightCard
+              background={item.background}
+              title={item.title}
+              icon={item.icon}
+              key={item.background}
+            />
           ))}
         </Flex>
       </S.HeroContext>
