@@ -9,7 +9,7 @@ export const Header = styled.header`
   right: 0;
 
   background: hsla(0, 0%, 98%, 0.8);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(12px);
 `;
 
 export const Nav = styled.nav`
