@@ -2,6 +2,14 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   padding: 2rem 0;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background: hsla(0, 0%, 98%, 0.8);
+  backdrop-filter: blur(6px);
 `;
 
 export const Nav = styled.nav`
