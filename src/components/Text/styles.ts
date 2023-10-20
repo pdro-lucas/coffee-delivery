@@ -1,41 +1,44 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TextProps } from '.';
 
-const baseText = styled.div`
+const baseText = styled.div<TextProps>`
   line-height: 130%;
-  color: ${(props) => props.theme.colors.base.text};
+  color: ${(props) =>
+    props.$color
+      ? props.theme.colors.base[props.$color]
+      : props.theme.colors.base.text};
 
   font-family: var(--font-family-roboto);
 `;
 
-export const Text = styled(baseText)<TextProps>`
+export const Text = styled(baseText)`
   ${(props) => {
     switch (props.$size) {
       case 'lg':
-        return `
-        font-size: 1.25rem;
-        font-weight: ${props.$weight}
-      `;
+        return css`
+          font-size: 1.25rem;
+          font-weight: ${props.$weight};
+        `;
       case 'md':
-        return `
-        font-size: 1rem;
-        font-weight: ${props.$weight};
-      `;
+        return css`
+          font-size: 1rem;
+          font-weight: ${props.$weight};
+        `;
       case 'sm':
-        return `
-        font-size: 0.875rem;
-        font-weight: ${props.$weight};
-      `;
+        return css`
+          font-size: 0.875rem;
+          font-weight: ${props.$weight};
+        `;
       case 'xs':
-        return `
-        font-size: 0.75rem;
-        font-weight: ${props.$weight};
-      `;
+        return css`
+          font-size: 0.75rem;
+          font-weight: ${props.$weight};
+        `;
       case 'tag':
-        return `
-        font-size: 0.625rem;
-        font-weight: ${props.$weight};
-      `;
+        return css`
+          font-size: 0.625rem;
+          font-weight: ${props.$weight};
+        `;
     }
   }}
 `;
