@@ -1,17 +1,19 @@
-import { Heading } from '../../components/Heading';
 import { Container } from '../../components/Utilities';
-import { Main } from './styles';
+import { CooffeesSection } from './sections/Coffees';
+import { HeroSection } from './sections/Hero';
+import * as S from './styles';
 
 export function HomePage() {
   return (
-    <Main>
+    <S.Main>
       <section>
         <Container>
-          <Heading level="h1">
-            Encontre o café perfeito para qualquer hora do dia
-          </Heading>
+          <HeroSection />
         </Container>
       </section>
-    </Main>
+      <Container as="section">
+        <CooffeesSection />
+      </Container>
+    </S.Main>
   );
 }
