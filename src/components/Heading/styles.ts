@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import { HeadingProps } from '.';
 
-const baseHeading = styled.h1`
+const baseHeading = styled.h1<HeadingProps>`
   line-height: 130%;
-  color: ${(props) => props.theme.colors.base.title};
+  color: ${(props) =>
+    props.$color
+      ? props.theme.colors.base[props.$color]
+      : props.theme.colors.base.title};
 
   font-family: var(--font-family-baloo2);
 `;
-export const Heading = styled(baseHeading)<HeadingProps>`
+export const Heading = styled(baseHeading)`
   ${(props) => {
     switch (props.$level) {
       case 'h1':
