@@ -56,7 +56,7 @@ export function HeroSection() {
               background={item.background}
               title={item.title}
               icon={item.icon}
-              key={item.background}
+              key={item.title}
             />
           ))}
         </Flex>
