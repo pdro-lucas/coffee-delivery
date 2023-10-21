@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { CounterButton } from '../CounterButton';
 import { Flex } from '../Utilities';
 import * as S from './styles';
+import { Button } from '@/components/Button';
+import { ShoppingCartSimple } from 'phosphor-react';
 
 type Tags = {
   title: string;
@@ -59,11 +61,21 @@ export function CoffeeCard({
               {price}
             </Heading>
           </Flex>
-          <CounterButton
-            count={ammoutCoffee}
-            incrementCoffee={handleIncrementCoffee}
-            decrementCoffee={handleDecrementCoffee}
-          />
+          <Flex $gap="0.5rem">
+            <CounterButton
+              count={ammoutCoffee}
+              incrementCoffee={handleIncrementCoffee}
+              decrementCoffee={handleDecrementCoffee}
+            />
+            <Button
+              $variant="icon"
+              type="button"
+              title="Add coffee to your cart"
+              aria-label="Add coffee to your cart"
+            >
+              <ShoppingCartSimple size={24} weight="fill" />
+            </Button>
+          </Flex>
         </S.CardFooter>
       </S.CardBody>
     </S.Card>
