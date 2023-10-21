@@ -1,7 +1,9 @@
 import { Heading } from '@/components/Heading';
-import * as S from './styles';
 import { Text } from '@/components/Text';
+import { useState } from 'react';
+import { CounterButton } from '../CounterButton';
 import { Flex } from '../Utilities';
+import * as S from './styles';
 
 type Tags = {
   title: string;
@@ -14,6 +16,7 @@ export interface CardProps {
   image: string;
   price: number;
 }
+
 export function CoffeeCard({
   title,
   image,
@@ -21,6 +24,18 @@ export function CoffeeCard({
   tags,
   price,
 }: CardProps) {
+  const [ammoutCoffee, setAmountCoffee] = useState(1);
+
+  function handleIncrementCoffee() {
+    setAmountCoffee((state) => state + 1);
+  }
+
+  function handleDecrementCoffee() {
+    if (ammoutCoffee >= 1) {
+      setAmountCoffee((state) => state - 1);
+    }
+  }
+
   return (
     <S.Card>
       <img src={image} alt={title} />
@@ -44,6 +59,11 @@ export function CoffeeCard({
               {price}
             </Heading>
           </Flex>
+          <CounterButton
+            count={ammoutCoffee}
+            incrementCoffee={handleIncrementCoffee}
+            decrementCoffee={handleDecrementCoffee}
+          />
         </S.CardFooter>
       </S.CardBody>
     </S.Card>
