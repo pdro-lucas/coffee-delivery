@@ -34,11 +34,11 @@ const secondaryStyles = css`
 const iconStyles = css`
   padding: 0.5rem;
 
-  background-color: ${({ theme }) => theme.colors.purple.normal};
+  background-color: ${({ theme }) => theme.colors.purple.dark};
   color: ${({ theme }) => theme.colors.base.white};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.purple.dark};
+    background-color: ${({ theme }) => theme.colors.purple.normal};
   }
 `;
 
