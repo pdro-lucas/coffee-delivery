@@ -7,7 +7,9 @@ export function Navbar() {
   return (
     <S.Header>
       <S.Nav>
-        <img src={Logo} alt="" />
+        <NavLink to="/" title="Go to home">
+          <img src={Logo} alt="" />
+        </NavLink>
         <S.NavItems>
           <S.Location>
             <MapPin size={24} weight="fill" />
