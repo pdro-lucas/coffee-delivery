@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.span`
   border-radius: 0.375rem;
+  max-width: max-content;
 
   display: inline-block;
   background-color: ${({ theme }) => theme.colors.base.button};
@@ -9,7 +10,11 @@ export const Wrapper = styled.span`
   overflow: hidden;
 `;
 
-const baseButton = styled.button`
+interface ButtonVariant {
+  $variant?: 'compact' | 'normal';
+}
+
+const baseButton = styled.button<ButtonVariant>`
   line-height: 0%;
 
   background-color: transparent;
@@ -31,11 +36,25 @@ const baseButton = styled.button`
 `;
 
 export const DecrementButton = styled(baseButton)`
-  padding: 0.75rem 0.25rem 0.75rem 0.5rem;
+  ${(props) =>
+    props.$variant
+      ? css`
+          padding: 0.5rem;
+        `
+      : css`
+          padding: 0.75rem 0.25rem 0.75rem 0.5rem;
+        `}
 `;
 
 export const IncrementButton = styled(baseButton)`
-  padding: 0.75rem 0.5rem 0.75rem 0.25rem;
+  ${(props) =>
+    props.$variant
+      ? css`
+          padding: 0.5rem;
+        `
+      : css`
+          padding: 0.75rem 0.5rem 0.75rem 0.25rem;
+        `}
 `;
 
 export const Counter = styled.span`
