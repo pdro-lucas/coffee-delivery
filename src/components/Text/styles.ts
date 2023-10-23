@@ -9,6 +9,8 @@ const baseText = styled.div<TextProps>`
       : props.theme.colors.base.text};
 
   font-family: var(--font-family-roboto);
+  text-transform: ${(props) =>
+    props.$transform === 'uppercase' ? props.$transform : 'unset'};
 `;
 
 export const Text = styled(baseText)`
