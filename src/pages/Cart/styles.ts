@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-  height: calc(100vh - 6.5rem);
+  height: 100vh;
   margin-top: 6.5rem;
   padding-top: 2.5rem;
 `;
@@ -34,6 +34,12 @@ export const OrderPaymentDetails = styled.div`
   padding: 2.5rem;
 
   background-color: ${({ theme }) => theme.colors.base.card};
+
+  hr {
+    height: 1px;
+    border: none;
+    background: ${({ theme }) => theme.colors.base.button};
+  }
 `;
 
 export const OrderDetails = styled(PurchaseDetails)`
