@@ -6,16 +6,30 @@ export const Main = styled.main`
   padding-top: 2.5rem;
 `;
 
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+`;
+
 export const PurchaseDetails = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
 
-  max-width: 40rem;
   width: 100%;
+
+  @media (min-width: 1024px) {
+    max-width: 40rem;
+  }
 `;
 
-export const AddressCard = styled.div`
+export const OrderPaymentDetails = styled.div`
   border-radius: 0.375rem;
   padding: 2.5rem;
 
@@ -23,10 +37,12 @@ export const AddressCard = styled.div`
 `;
 
 export const OrderDetails = styled(PurchaseDetails)`
-  max-width: 28rem;
+  @media (min-width: 1024px) {
+    max-width: 28rem;
+  }
 `;
 
-export const OrderCard = styled(AddressCard)`
+export const OrderCard = styled(OrderPaymentDetails)`
   border-radius: 0.375rem 2.75rem;
 
   background-color: ${({ theme }) => theme.colors.base.card};
