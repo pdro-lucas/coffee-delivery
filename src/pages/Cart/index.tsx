@@ -6,8 +6,9 @@ import { defaultTheme as theme } from '@/styles/themes/default';
 import { CurrencyDollar, MapPinLine } from 'phosphor-react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { AddressForm } from './components/AddressForm';
-import * as S from './styles';
 import { PaymentForm } from './components/PaymentForm';
+import { SelectedCoffeeCard } from './components/SelectedCoffeeCard';
+import * as S from './styles';
 
 interface FormInputData {
   cep: string;
@@ -75,8 +76,31 @@ export function CartPage() {
               <S.OrderDetails as="aside">
                 <Heading $level="h5">Cafés selecionados</Heading>
                 <S.OrderCard>
-                  teste 2 bebe
-                  <Button type="submit">COnfirmar pedido</Button>
+                  <Flex $gap="1.5rem" $direction="column">
+                    <SelectedCoffeeCard />
+                    <hr />
+                    <SelectedCoffeeCard />
+                    <hr />
+                    <Flex $direction="column" $gap="0.75rem">
+                      <Flex $justify="space-between" $align="center">
+                        <Text $size="sm">Total de itens</Text>
+                        <Text $size="sm">R$ 29,70</Text>
+                      </Flex>
+                      <Flex $justify="space-between" $align="center">
+                        <Text $size="sm">Entrega</Text>
+                        <Text $size="sm">R$ 3,50</Text>
+                      </Flex>
+                      <Flex $justify="space-between" $align="center">
+                        <Text $size="lg" $weight={700}>
+                          Total
+                        </Text>
+                        <Text $size="lg" $weight={700}>
+                          R$ 33,20
+                        </Text>
+                      </Flex>
+                    </Flex>
+                    <Button type="submit">COnfirmar pedido</Button>
+                  </Flex>
                 </S.OrderCard>
               </S.OrderDetails>
             </S.FormContainer>
