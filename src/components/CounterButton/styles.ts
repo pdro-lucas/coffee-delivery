@@ -39,7 +39,7 @@ export const DecrementButton = styled(baseButton)`
   ${(props) =>
     props.$variant
       ? css`
-          padding: 0.5rem;
+          padding: 0.6rem;
         `
       : css`
           padding: 0.75rem 0.25rem 0.75rem 0.5rem;
@@ -50,7 +50,7 @@ export const IncrementButton = styled(baseButton)`
   ${(props) =>
     props.$variant
       ? css`
-          padding: 0.5rem;
+          padding: 0.6rem;
         `
       : css`
           padding: 0.75rem 0.5rem 0.75rem 0.25rem;

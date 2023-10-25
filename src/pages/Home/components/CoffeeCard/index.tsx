@@ -1,11 +1,13 @@
 import { Heading } from '@/components/Heading';
 import { Text } from '@/components/Text';
-import { useState } from 'react';
-import { CounterButton } from '../CounterButton';
-import { Flex } from '../Utilities';
+import { useContext } from 'react';
+import { CounterButton } from '@/components/CounterButton';
+import { Flex } from '@/components/Utilities';
 import * as S from './styles';
 import { Button } from '@/components/Button';
 import { ShoppingCartSimple } from 'phosphor-react';
+import { CartContext } from '@/contexts/CartContext';
+import { useCoffeeAmount } from '@/hooks/useCoffeeAmount';
 
 type Tags = {
   title: string;
@@ -13,9 +15,9 @@ type Tags = {
 
 export interface CardProps {
   title: string;
+  image: string;
   description: string;
   tags: Tags[];
-  image: string;
   price: number;
 }
 
@@ -26,16 +28,18 @@ export function CoffeeCard({
   tags,
   price,
 }: CardProps) {
-  const [ammoutCoffee, setAmountCoffee] = useState(1);
+  const { coffeeAmount, decrementCoffee, incrementCoffee } = useCoffeeAmount();
+  const { addNewCoffeeToCart } = useContext(CartContext);
 
-  function handleIncrementCoffee() {
-    setAmountCoffee((state) => state + 1);
-  }
-
-  function handleDecrementCoffee() {
-    if (ammoutCoffee >= 1) {
-      setAmountCoffee((state) => state - 1);
-    }
+  function handleAddCoffeeToCart() {
+    addNewCoffeeToCart({
+      title,
+      image,
+      description,
+      tags,
+      price,
+      amount: coffeeAmount,
+    });
   }
 
   return (
@@ -63,15 +67,16 @@ export function CoffeeCard({
           </Flex>
           <Flex $gap="0.5rem">
             <CounterButton
-              count={ammoutCoffee}
-              incrementCoffee={handleIncrementCoffee}
-              decrementCoffee={handleDecrementCoffee}
+              count={coffeeAmount}
+              incrementCoffee={incrementCoffee}
+              decrementCoffee={decrementCoffee}
             />
             <Button
               $variant="icon"
               type="button"
               title="Add coffee to your cart"
               aria-label="Add coffee to your cart"
+              onClick={() => handleAddCoffeeToCart()}
             >
               <ShoppingCartSimple size={24} weight="fill" />
             </Button>

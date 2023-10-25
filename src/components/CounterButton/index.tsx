@@ -22,11 +22,16 @@ export function CounterButton({
         onClick={decrementCoffee}
         disabled={decrementButtonIsActive}
         $variant={$variant}
+        type="button"
       >
         <Minus size={16} />
       </S.DecrementButton>
       <S.Counter>{count}</S.Counter>
-      <S.IncrementButton onClick={incrementCoffee} $variant={$variant}>
+      <S.IncrementButton
+        onClick={incrementCoffee}
+        $variant={$variant}
+        type="button"
+      >
         <Plus size={16} />
       </S.IncrementButton>
     </S.Wrapper>

@@ -1,4 +1,4 @@
-import { CoffeeCard } from '@/components/CoffeeCard';
+import { CoffeeCard } from '../../components/CoffeeCard';
 import { Heading } from '@/components/Heading';
 import { Flex } from '@/components/Utilities';
 import { coffee } from './coffees';
